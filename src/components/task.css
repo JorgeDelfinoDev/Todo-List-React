@@ -1,0 +1,17 @@
+.task-item {
+	cursor: pointer;
+}
+
+.delete-icon {
+	transition: all .4s ease;
+}
+.delete-icon:hover {
+	transform: scale(1.3)
+}
+
+.completed-icon {
+	transition: all .4s ease;
+}
+.completed-icon:hover {
+	transform: scale(1.3)
+}
