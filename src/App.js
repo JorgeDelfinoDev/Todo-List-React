@@ -43,7 +43,7 @@ class App extends Component {
 				}
 				return task;
 			});
-
+			
 			this.setState({
 				tasks: taskList,
 				infoMessage: 'completada',
@@ -53,6 +53,7 @@ class App extends Component {
 	}
 
 	createTask = task => {
+
 		this.setState({
 			tasks: [
 				task,
@@ -64,6 +65,7 @@ class App extends Component {
 	}
 
 	deleteTask = id => {
+
 		let taskList = [...this.state.tasks];
 		taskList = taskList.filter(task => task.id !== id);
 		this.setState({

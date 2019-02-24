@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './infoBanner.css';
+import './info-banner.css';
 
 const InfoBanner = props => {
 
@@ -17,7 +17,7 @@ const InfoBanner = props => {
 		}
 	}
 	return (
-		<div className={`InfoBanner alert ${colorAlert(props.info)}`} role="alert">
+		<div className={`info-banner alert ${colorAlert(props.info)}`} role="alert">
 			<h5 className="m-0">Tarea {props.info}</h5>
 		</div>
 	);
