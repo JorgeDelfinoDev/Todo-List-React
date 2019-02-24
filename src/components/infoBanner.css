@@ -1,6 +1,6 @@
 .InfoBanner {
 	margin: 0;
-	position: absolute;
+	position: fixed;
 	right: 20px;
 	bottom: 20px;
 }

@@ -5,8 +5,10 @@ import './header.css';
 const Header = (props) => {
 	return (
 		<header className="text-center py-4">
-			<h1 className="mb-4 app-logo"><a href="/" className="text-light">To Do List App</a></h1>
-			{props.children}
+			<div className="container">
+				<h1 className="mb-4 app-logo"><a href="/" className="text-light">Lista de Tareas</a></h1>
+				{props.children}
+			</div>
 		</header>
 	);
 }

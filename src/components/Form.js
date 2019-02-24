@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import uuidV1 from 'uuid/v1';
 
 import { CSSTransition } from 'react-transition-group';
-import './fade.css';
+
+import './fade-center.css';
 
 class Form extends Component {
 
@@ -36,36 +37,27 @@ class Form extends Component {
 		this.taskRef.current.value = '';
 	}
 
-	showError = () => {
-		if (this.state.error) {
-			return 	<div class="alert alert-danger mx-auto my-0 col-md-6 col-sm-4" role="alert">
-						¡No puedes crear una tarea vacia!
-					</div>
-		} else {
-			return null;
-		}
-	}
-
 	render() { 
 		return (
-			<div className="container">
-				<form onSubmit={this.createTask}>
-					<div className="row form-group d-flex justify-content-center mx-sm-3">
-						<input className="form-control form-control-lg col-md-6 col-sm-10" ref={this.taskRef} type="text" placeholder="Task to do"/>
-						<button type="submit" className="btn btn-primary ml-md-4 col-md-2 col-sm-10">Add Task</button>
+			<form onSubmit={this.createTask}>
+				<div className="form-group d-flex justify-content-center row w-100 m-0">
+					<input className="form-control form-control-lg col-12 col-md-6" ref={this.taskRef} type="text" placeholder="Añade una nueva tarea..."/>
+					<button type="submit" className="btn btn-primary ml-md-4 col-12 col-md-2">
+						Añadir tarea
+					</button>
+				</div>
+				<CSSTransition
+					in={this.state.error}
+					timeout={1000}
+					classNames="fade-center"
+					mountOnEnter
+					unmountOnExit
+				>
+					<div class="alert alert-danger mx-auto my-0 col-md-6 col-sm-4" role="alert">
+						¡No puedes crear una tarea vacia!
 					</div>
-					<CSSTransition
-						in={this.state.error}
-						timeout={1000}
-						classNames="fade"
-					>
-						<Fragment>
-							{ this.showError() }
-						</Fragment>
-					</CSSTransition>
-
-				</form>
-			</div>
+				</CSSTransition>
+			</form>
 		);
 	}
 }

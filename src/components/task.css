@@ -6,12 +6,14 @@
 	transition: all .4s ease;
 }
 .delete-icon:hover {
-	transform: scale(1.3)
+	transform: scale(1.3);
+	color: #D32F2F;
 }
 
 .completed-icon {
 	transition: all .4s ease;
 }
 .completed-icon:hover {
-	transform: scale(1.3)
+	transform: scale(1.3);
+	color: #C8E6C9;
 }

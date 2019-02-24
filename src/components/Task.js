@@ -21,7 +21,7 @@ class Task extends Component {
 		const iconItem = completed ? 'fas fa-check' : 'fas fa-times';
 
 		return (
-			<li className="list-group-item col-md-6 col-sm-10 mx-auto mb-4 p-0 task-item">
+			<li className="task-item list-group-item col-12 col-md-8 mx-auto mb-4 p-0">
 				<div className={`d-flex justify-content-start align-items-center ${bgItem} p-3`}>
 					<i onClick={this.itemCompleted} className={`${iconItem} mr-4 completed-icon`} style={{fontSize: 30}}></i>
 					<h2>{this.props.info.title}</h2>

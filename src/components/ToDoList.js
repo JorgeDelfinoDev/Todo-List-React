@@ -11,16 +11,15 @@ class ToDoList extends Component {
 	render() {
 		const {todoList} = this.props;
 		return (
-			<div className="container todo-list py-4">
+			<div className="container todo-list py-4 py-md-5">
 				<ul className="list-group">
 					<TransitionGroup>
 						{
 							todoList.map(task => (
 								<CSSTransition
-									appear={false}
 									key={task.id}
 									timeout={1000}
-									classNames="fadeSlide"
+									classNames="fade-center"
 								>
 									<Task
 										info={task}

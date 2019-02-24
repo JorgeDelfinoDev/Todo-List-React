@@ -1,0 +1,32 @@
+.fade-center-appear {
+    opacity: 0.01;
+	transform: scaleY(0);
+}
+
+.fade-center-appear-active {
+    opacity: 1;
+	transform: scaleY(1);	
+    transition: all 800ms ease;
+}
+
+.fade-center-enter {
+    opacity: 0.01;
+    transform: scaleY(0);
+}
+
+.fade-center-enter-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: all 800ms ease;
+}
+
+.fade-center-exit {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.fade-center-exit-active {
+    opacity: 0.01;
+    transform: scaleY(0);;
+    transition: all 800ms ease;
+}

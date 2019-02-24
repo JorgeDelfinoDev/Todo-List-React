@@ -3,14 +3,19 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import ToDoList from './components/ToDoList';
 import Form from './components/Form';
+import InfoBanner from './components/InfoBanner';
 
+import { CSSTransition } from 'react-transition-group';
+
+import './components/fade-center.css';
 import './App.css';
-import './components/fade.css';
 
 class App extends Component {
 
 	state = {
-		tasks: []
+		tasks: [],
+		infoMessage: '',
+		showAlert: false
 	}
 
 	componentDidMount () {
@@ -40,7 +45,9 @@ class App extends Component {
 			});
 
 			this.setState({
-				tasks: taskList
+				tasks: taskList,
+				infoMessage: 'completada',
+				showAlert: true
 			})
 		}
 	}
@@ -50,7 +57,9 @@ class App extends Component {
 			tasks: [
 				task,
 				...this.state.tasks
-			]
+			],
+			infoMessage: 'creada',
+			showAlert: true
 		})	
 	}
 
@@ -58,8 +67,18 @@ class App extends Component {
 		let taskList = [...this.state.tasks];
 		taskList = taskList.filter(task => task.id !== id);
 		this.setState({
-			tasks: taskList
+			tasks: taskList,
+			infoMessage: 'eliminada',
+			showAlert: true
 		})
+	}
+
+	hideAlert = () => {
+		setTimeout(() => {
+			this.setState({
+				showAlert: false
+			})
+		}, 3000);
 	}
 
 	render() {
@@ -75,6 +94,18 @@ class App extends Component {
 					completeTask={this.completeTask}
 					deleteTask={this.deleteTask}
 				/>
+				<CSSTransition
+					in={this.state.showAlert}
+					timeout={500}
+					classNames='fade-center'
+					onEntered={this.hideAlert}
+					mountOnEnter
+					unmountOnExit
+				>
+					<InfoBanner
+						info={this.state.infoMessage}
+					/>
+				</CSSTransition>
 			</div>
 		);
 	}

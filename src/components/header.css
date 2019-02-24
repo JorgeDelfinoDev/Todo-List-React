@@ -1,5 +1,6 @@
 header {
 	background: #2196F3;
+	transition: all ease 500ms;
 }
 .app-logo a {
 	text-decoration: none;
